@@ -4,4 +4,34 @@
 module DataComputation;
 create OUT : Data from IN : Java;
 
+endpoint rule createModel(){
+	to
+		model : Data!Model (
+			types <- Java!ClassDeclaration.allInstancesFrom('IN') 
+		)
+}
+
 -- TO BE COMPLETED
+rule ClassToEntity {
+	from
+		s : Java!ClassDeclaration (
+			s.package.name = 'model'
+		)
+	to
+		t : Data!Entity (
+			name <- s.name,
+			attributes <- s.bodyDeclarations->select(e | 
+				e->oclIsTypeOf(Java!FieldDeclaration)
+			)
+		)
+}
+
+rule FieldToAttribute {
+	from
+		s : Java!FieldDeclaration
+	to
+		t : Data!Attribute (
+			name <- s.fragments->collect(f | f.name)
+--			type <- s.type->collect(ty | ty.type.name)
+		)
+}

@@ -2,19 +2,17 @@
 <data:Model
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:data="http://data">
-  <entities
-      name="Personne">
+  <types xsi:type="data:Entity"
+      name="Toto">
     <attributes
         name="name"
-        type="//@types.0"/>
-    <attributes
-        name="age"
         type="//@types.1"/>
     <attributes
-        name="brother"
-        type="//@entities.0"/>
-  </entities>
-  <types name="String"/>
-  <types name="int"/>
+        name="child"
+        type="//@types.0"/>
+  </types>
+  <types xsi:type="data:PrimitiveType"
+      name="String"/>
 </data:Model>

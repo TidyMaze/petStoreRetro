@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<data:Model xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:data="http://data">
+  <types xsi:type="data:Entity" name="SellerContactInfo">
+    <attributes name="contactInfoID"/>
+    <attributes name="lastName"/>
+    <attributes name="firstName"/>
+    <attributes name="email"/>
+  </types>
+  <types xsi:type="data:Entity" name="Tag">
+    <attributes name="tagID"/>
+    <attributes name="items"/>
+    <attributes name="tag"/>
+    <attributes name="refCount"/>
+  </types>
+  <types xsi:type="data:Entity" name="Address">
+    <attributes name="addressID"/>
+    <attributes name="street1"/>
+    <attributes name="street2"/>
+    <attributes name="city"/>
+    <attributes name="state"/>
+    <attributes name="zip"/>
+    <attributes name="latitude"/>
+    <attributes name="longitude"/>
+    <attributes name="COMMA"/>
+  </types>
+  <types xsi:type="data:Entity" name="FileUploadResponse">
+    <attributes name="itemId"/>
+    <attributes name="productId"/>
+    <attributes name="message"/>
+    <attributes name="status"/>
+    <attributes name="duration"/>
+    <attributes name="durationString"/>
+    <attributes name="startDate"/>
+    <attributes name="endDate"/>
+    <attributes name="uploadSize"/>
+    <attributes name="thumbnail"/>
+  </types>
+  <types xsi:type="data:Entity" name="Category">
+    <attributes name="categoryID"/>
+    <attributes name="name"/>
+    <attributes name="description"/>
+    <attributes name="imageURL"/>
+  </types>
+  <types xsi:type="data:Entity" name="RatingBean">
+    <attributes name="itemId"/>
+    <attributes name="grade"/>
+    <attributes name="cf" type="//@types.10"/>
+  </types>
+  <types xsi:type="data:Entity" name="PayPalBean">
+    <attributes name="postData"/>
+  </types>
+  <types xsi:type="data:Entity" name="ZipLocation">
+    <attributes name="zipCode"/>
+    <attributes name="city"/>
+    <attributes name="state"/>
+  </types>
+  <types xsi:type="data:Entity" name="Item">
+    <attributes name="itemID"/>
+    <attributes name="productID"/>
+    <attributes name="name"/>
+    <attributes name="description"/>
+    <attributes name="imageURL"/>
+    <attributes name="imageThumbURL"/>
+    <attributes name="price"/>
+    <attributes name="address" type="//@types.2"/>
+    <attributes name="contactInfo" type="//@types.0"/>
+    <attributes name="totalScore"/>
+    <attributes name="numberOfVotes"/>
+    <attributes name="disabled"/>
+    <attributes name="tags"/>
+  </types>
+  <types xsi:type="data:Entity" name="Product">
+    <attributes name="productID"/>
+    <attributes name="categoryID"/>
+    <attributes name="name"/>
+    <attributes name="description"/>
+    <attributes name="imageURL"/>
+  </types>
+  <types xsi:type="data:Entity" name="CatalogFacade">
+    <attributes name="emf"/>
+    <attributes name="utx"/>
+    <attributes name="bDebug"/>
+  </types>
+  <types xsi:type="data:Entity" name="Dummy"/>
+</data:Model>
