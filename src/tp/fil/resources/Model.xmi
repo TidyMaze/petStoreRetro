@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data:Model
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:data="http://data">
+  <entities
+      name="Personne">
+    <attributes
+        name="name"
+        type="//@types.0"/>
+    <attributes
+        name="age"
+        type="//@types.1"/>
+    <attributes
+        name="brother"
+        type="//@entities.0"/>
+  </entities>
+  <types name="String"/>
+  <types name="int"/>
+</data:Model>
