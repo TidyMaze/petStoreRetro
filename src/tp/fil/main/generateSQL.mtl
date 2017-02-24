@@ -2,11 +2,15 @@
 [module generateSQL('http://data')]
 [comment 'platform:/resource/tp.fil/src/tp/fil/resources/Data.ecore' /]
 
+[import tp::fil::main::jAttributesToSQLAttributes /]
+
 [template public generateSQL(model : Model)]
 [comment @main/] 
 [file ('PetStore_database.sql', false, 'UTF-8')]
-	
-	[comment TO BE COMPLETED/]
-
+[for (entity : Entity | model.types->filter(Entity))]
+CREATE TABLE [entity.name.toUpperCase()/] (
+  [for (attribute : Attribute | entity.attributes) separator (',\n') after('\n')]  [generateSQLAttributes(attribute.name, attribute.type.name) /][/for]
+);
+[/for]
 [/file]
 [/template]
