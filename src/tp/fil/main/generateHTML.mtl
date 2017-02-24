@@ -7,6 +7,8 @@
 [file ('PetStore_rendering.html', false, 'UTF-8')]
 	
 	[comment TO BE COMPLETED/]
-
+[for (entity : Entity | model.types)]
+	<img src="https://yuml.me/diagram/scruffy/class/[ '[' + entity.name + '|' /][for (attribute : Attribute | entity.attributes) separator (';') after ('')][attribute.name /][/for]]"/>
+[/for]
 [/file]
 [/template]
