@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <project default="generateHTML" name="petStoreRetro">
 <<<<<<< HEAD
     <property name="ECLIPSE_HOME" value="../../../Téléchargements/eclipse"/>
@@ -47,25 +48,34 @@
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.modisco.java.discoverer_1.0.0.201605180829.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.modisco.kdm.source.extension_1.0.0.201605180829.jar"/>
         <pathelement location="${ECLIPSE_HOME}/plugins/org.eclipse.gmt.modisco.omg.kdm_1.0.0.201605180829.jar"/>
+=======
+<project default="generateHTML" name="tp.fil">
+    <property name="ECLIPSE_HOME" value="../../../eclipse/modeling-neon/eclipse"/>
+    <property name="ECLIPSE_WORKSPACE" value="../.."/>
+
+    <!-- The classpath with only the dependencies used by the project -->
+    <path id="tp.fil.libraryclasspath">
+        <pathelement location="${ECLIPSE_WORKSPACE}/tp.fil/bin"/>
+>>>>>>> 7c4134f9807eef7c6fca83fdfe9ef6d45cab3d65
     </path>
 
-    <path id="petStoreRetro.classpath">
-        <path refid="petStoreRetro.libraryclasspath"/>
+    <path id="tp.fil.classpath">
+        <path refid="tp.fil.libraryclasspath"/>
     </path>
 
     <!-- The classpath with only the jars available in the plugin folder of Eclipse -->
-    <path id="petStoreRetro.libraryclasspath.alljars">
-        <pathelement location="../petStoreRetro/bin"/>
+    <path id="tp.fil.libraryclasspath.alljars">
+        <pathelement location="../tp.fil/bin"/>
         <fileset dir="${ECLIPSE_HOME}/plugins/" includes="*.jar"/>
     </path>
 
-    <path id="petStoreRetro.classpath.alljars">
-        <path refid="petStoreRetro.libraryclasspath.alljars"/>
+    <path id="tp.fil.classpath.alljars">
+        <path refid="tp.fil.libraryclasspath.alljars"/>
     </path>
 
     <!-- The default task with the jars used by this project -->
     <target name="generateHTML">
-        <java classname="tp.fil.main.GenerateHTML" classpathref="petStoreRetro.classpath">
+        <java classname="tp.fil.main.GenerateHTML" classpathref="tp.fil.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
@@ -76,7 +86,7 @@
         Keep in mind that having two versions of the same jar can create problems
     -->
     <target name="generateHTML.alljars">
-        <java classname="tp.fil.main.GenerateHTML" classpathref="petStoreRetro.classpath">
+        <java classname="tp.fil.main.GenerateHTML" classpathref="tp.fil.classpath">
             <arg value="${model}"/>
             <arg value="${target}"/>
         </java>
