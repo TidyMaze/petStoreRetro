@@ -6,9 +6,19 @@
 [comment @main/]  
 [file ('PetStore_rendering.html', false, 'UTF-8')]
 	
-	[comment TO BE COMPLETED/]
-[for (entity : Entity | model.types)]
-	<img src="https://yuml.me/diagram/scruffy/class/[ '[' + entity.name + '|' /][for (attribute : Attribute | entity.attributes) separator (';') after ('')][attribute.name /][/for]]"/>
+<img src="https://yuml.me/diagram/scruffy/class/
+[for (type : Type | model.types)]
+	[if (type.oclIsKindOf(Entity))]
+		[let entity : Entity = type.oclAsType(Entity)]
+		[ '[' /]
+		[ entity.name + '|' /]
+		[for (attribute : Attribute | entity.attributes) separator (';') after ('')]
+			[attribute.name + ' : ' + attribute.type.name /]
+		[/for]
+		[ '],' /]
+		[/let]
+	[/if]
 [/for]
+"/>
 [/file]
 [/template]
