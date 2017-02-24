@@ -7,7 +7,7 @@ create OUT : Data from IN : Java;
 endpoint rule createModel(){
 	to
 		model : Data!Model (
-			types <- Java!ClassDeclaration.allInstancesFrom('IN') 
+			types <- Java!ClassDeclaration.allInstancesFrom('IN')
 		)
 }
 
@@ -31,7 +31,16 @@ rule FieldToAttribute {
 		s : Java!FieldDeclaration
 	to
 		t : Data!Attribute (
-			name <- s.fragments->collect(f | f.name)
---			type <- s.type->collect(ty | ty.type.name)
+			name <- s.fragments->first().name,
+			type <- s.type.type
+		)
+}
+
+rule JavaTypeToDataType {
+	from
+		s : Java!Type(Set{'String', 'int', 'float', 'double'}->includes(s.name))
+	to
+		t : Data!PrimitiveType (
+			name <- s.name
 		)
 }
