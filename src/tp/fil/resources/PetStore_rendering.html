@@ -1,22 +1,21 @@
 	
 <img src="https://yuml.me/diagram/scruffy/class/
 		[
-		SellerContactInfo|
-			contactInfoID : String
+		SellerContactInfo
+|			contactInfoID : String
 ;			lastName : String
 ;			firstName : String
 ;			email : String
 		],
 		[
-		Tag|
-			tagID : int
-;			items : invalid
+		Tag
+|			tagID : int
 ;			tag : String
 ;			refCount : int
 		],
 		[
-		Address|
-			addressID : String
+		Address
+|			addressID : String
 ;			street1 : String
 ;			street2 : String
 ;			city : String
@@ -27,8 +26,8 @@
 ;			COMMA : String
 		],
 		[
-		FileUploadResponse|
-			itemId : String
+		FileUploadResponse
+|			itemId : String
 ;			productId : String
 ;			message : String
 ;			status : String
@@ -40,56 +39,50 @@
 ;			thumbnail : String
 		],
 		[
-		Category|
-			categoryID : String
+		Category
+|			categoryID : String
 ;			name : String
 ;			description : String
 ;			imageURL : String
 		],
 		[
-		RatingBean|
-			itemId : String
+		RatingBean
+|			itemId : String
 ;			grade : int
-;			cf : CatalogFacade
+		],
+			[RatingBean]-cf->[CatalogFacade],
+		[
+		PayPalBean
 		],
 		[
-		PayPalBean|
-			postData : invalid
-		],
-		[
-		ZipLocation|
-			zipCode : int
+		ZipLocation
+|			zipCode : int
 ;			city : String
 ;			state : String
 		],
 		[
-		Item|
-			itemID : String
+		Item
+|			itemID : String
 ;			productID : String
 ;			name : String
 ;			description : String
 ;			imageURL : String
 ;			imageThumbURL : String
-;			price : invalid
-;			address : Address
-;			contactInfo : SellerContactInfo
 ;			totalScore : int
 ;			numberOfVotes : int
 ;			disabled : int
-;			tags : invalid
 		],
+			[Item]-address->[Address],
+			[Item]-contactInfo->[SellerContactInfo],
 		[
-		Product|
-			productID : String
+		Product
+|			productID : String
 ;			categoryID : String
 ;			name : String
 ;			description : String
 ;			imageURL : String
 		],
 		[
-		CatalogFacade|
-			emf : invalid
-;			utx : invalid
-;			bDebug : invalid
+		CatalogFacade
 		],
 "/>
