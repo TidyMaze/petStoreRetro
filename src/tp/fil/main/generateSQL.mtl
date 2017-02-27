@@ -9,7 +9,7 @@
 [file ('PetStore_database.sql', false, 'UTF-8')]
 [for (entity : Entity | model.types->filter(Entity))]
 CREATE TABLE [entity.name.toUpperCase()/] (
-  [for (attribute : Attribute | entity.attributes) separator (',\n') after('\n')]  [generateSQLAttributes(attribute.name, attribute.type.name) /][/for]
+  id INT PRIMARY KEY AUTO_INCREMENT[for (attribute : Attribute | entity.attributes->select(e | not e.type.oclIsUndefined())) before(',\n') separator (',\n') after('\n')]  [generateSQLAttributes(attribute.name, attribute.type.name) /][/for]
 );
 [/for]
 [/file]
